@@ -147,7 +147,7 @@ describe('Store tests', () => {
     expect(cb1).toHaveBeenCalledWith(2);
     expect(cb2).toHaveBeenCalledTimes(0);
 
-    store.rollback$s.next()
+    store.rollback$s.next(undefined)
     expect(cb1).toHaveBeenCalledTimes(2);
     expect(cb1).toHaveBeenCalledWith(1);
     expect(cb2).toHaveBeenCalledTimes(0);
@@ -358,7 +358,7 @@ describe('Store tests', () => {
     expect(cbBroadcast2).toHaveBeenCalledTimes(4);
     expect(cbBroadcast2).toHaveBeenCalledWith(7);
 
-    store.flush$s.next()
+    store.flush$s.next(undefined)
 
     expect(cbBroadcast1).toHaveBeenCalledTimes(7);
     expect(cbBroadcast2).toHaveBeenCalledTimes(4);
@@ -426,14 +426,14 @@ describe('Store tests', () => {
     expect(cbBroadcast2).toHaveBeenCalledTimes(4);
     expect(cbBroadcast2).toHaveBeenCalledWith(0);
 
-    store.commit$s.next()
+    store.commit$s.next(undefined)
 
     expect(cbBroadcast1).toHaveBeenCalledTimes(8);
     expect(cbBroadcast1).toHaveBeenCalledWith(3);
     expect(cbBroadcast2).toHaveBeenCalledTimes(4);
     expect(cbBroadcast2).toHaveBeenCalledWith(0);
 
-    store.rollback$s.next()
+    store.rollback$s.next(undefined)
 
     expect(cbBroadcast1).toHaveBeenCalledTimes(9);
     expect(cbBroadcast1).toHaveBeenCalledWith(undefined);

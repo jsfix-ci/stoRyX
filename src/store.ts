@@ -245,16 +245,16 @@ export class Store {
    * registration [[register$1]] of any impacted values.
    */
   rollback(): void {
-    this.rollback$s.next();
+    this.rollback$s.next(undefined);
   }
 
   /** Remove any data in the store (not the subscription) */
   flush(): void {
-    this.flush$s.next();
+    this.flush$s.next(undefined);
   }
 
   commit(): void {
-    this.commit$s.next();
+    this.commit$s.next(undefined);
   }
 
   reset(): void {
